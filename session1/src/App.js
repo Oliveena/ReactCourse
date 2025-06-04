@@ -1,6 +1,9 @@
 import './App.css';
+import Welcome from './components/Component2';
 import Greeting from "./components/Greeting";
 import Greeting2 from "./components/Greeting2";
+import RandomNumberGenerator from './components/RandomNumberGenerator';
+import StudentCard from './components/StudentCard';
 
 function App() {
   return (
@@ -11,6 +14,10 @@ function App() {
 
     <Greeting />
     <Greeting2 /> 
+    <RandomNumberGenerator />
+    <Welcome />
+
+    <StudentCard name="Anastassia Tarassova" age={29} />
 
         {/* <p>
           Edit <code>src/App.js</code> and save to reload.
