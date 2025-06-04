@@ -33,10 +33,14 @@ function App() {
   };
 
   // return the UI elements 
-  return (
+return (
     <div className="app">
       <Button onClick={handleClick} />
-      <AnimalCard animals={animalList} />
+      <div className="animal-list">
+        {animalList.map((animal, index) => (
+          <AnimalCard key={index} animal={animal} />
+        ))}
+      </div>
     </div>
   );
 }
