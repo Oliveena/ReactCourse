@@ -1,4 +1,5 @@
 import { useState } from "react";
+import IncrementButton from "./IncrementButton";
 
 export default function CounterSyncExercice() { 
     // a shared click-counter between two buttons 
@@ -6,13 +7,13 @@ export default function CounterSyncExercice() {
 
     const [counter, setCounter] = useState(0); 
 
-    function increment() {
+    function incrementValue() {
         setCounter (counter + 1);
     }
 
     return <div>
-        <p>Shared value: {counter}</p>
-        <button onClick={increment}>Click me</button>
-        <button onClick={increment}>Click me too</button>
+        <p>Shared incremented value: {counter}</p>
+        <IncrementButton label={"Click me"} increment={incrementValue}/>
+        <IncrementButton label={"Click me too"} increment={incrementValue}/>
     </div>
 }
