@@ -1,18 +1,5 @@
-import { useState } from 'react';
+// value and onSquareClick are props from Board component
+export default function Square({value, onSquareClick}) {
 
-export default function Square() {
-
-    const [value, setValue] = useState(null);
-
-    function handleClick() {
-        console.log("clicked!");
-    }
-
-    return (
-        <button 
-        className="square"
-        onClick={handleClick}>
-            {value}
-        </button>
-    )
+return <button className="square" onClick={onSquareClick}>{value}</button>;
 }
