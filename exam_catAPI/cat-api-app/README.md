@@ -1,3 +1,75 @@
+# Ana's Cat API
+
+## Project Description: 
+React app for Web Development II course. 
+App uses API endpoints for 
+- Get Breeds: https://api.thecatapi.com/v1/breeds
+- Get Images by Breed:
+https://api.thecatapi.com/v1/images/search?breed_ids=BREED_ID&limit=6
+
+App allows selecting a breed and viewing individual images in a separate panel. 
+
+## Tools used: 
+
+- GitHub ((https://github.com/Oliveena/ReactCourse/tree/main/exam_catAPI/cat-api-app))
+- React and its official documentation
+- Bootstrap (sorry Dr. Reza, I prefer it to Tailwind)
+- Axios
+- Coolors.co for color palette
+- ChatGPT for Bootstrap .css templates and some debugging
+- Project Tree VSC plugin for project structure generation
+
+## Project Structure
+
+```
+exam_catAPI
+└─ cat-api-app
+   ├─ documents
+   │  ├─ projectScreenshots
+   │  │  ├─ Screenshot 2025-06-11 113735.png
+   │  │  ├─ Screenshot 2025-06-11 113846.png
+   │  │  └─ Screenshot 2025-06-11 113917.png
+   │  └─ test-react-2025-06-10.pdf
+   ├─ package-lock.json
+   ├─ package.json
+   ├─ public
+   │  ├─ favicon.ico
+   │  ├─ index.html
+   │  ├─ logo192.png
+   │  ├─ logo512.png
+   │  ├─ manifest.json
+   │  └─ robots.txt
+   ├─ README.md
+   └─ src
+      ├─ App.css
+      ├─ App.js
+      ├─ App.test.js
+      ├─ components
+      │  ├─ BreedDropdown.js
+      │  └─ CatImages.js
+      ├─ contexts
+      │  ├─ BreedContext.js
+      │  └─ CatImageContext.js
+      ├─ index.css
+      └─ index.js
+
+```
+## Demo
+(see 
+    exam_catAPI
+    └─ cat-api-app
+    ├─ documents
+    │  ├─ projectScreenshots
+)
+
+## Future improvements 
+ - let user build collections
+ - add descriptions
+ - add like/dislike button
+
+=================================== 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
