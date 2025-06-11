@@ -4,7 +4,12 @@ import { CatImageContext } from '../contexts/CatImageContext';
 
 export default function CatImages() {
     {/*importing cat images from context*/}
-    const { images } = useContext(CatImageContext);
+     const { images, isLoading } = useContext(CatImageContext);
+
+     // adding a visible UI message on top of the pre-exisititing console.log() in CatImageContext.js
+    if (isLoading) {
+        return <p>Your kitty pictures are loading. One moment, please.</p>;
+    }
     
     return(
         <div>
