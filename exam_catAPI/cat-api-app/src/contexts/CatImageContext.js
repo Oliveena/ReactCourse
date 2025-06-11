@@ -12,17 +12,25 @@ export const CatImageProvider = ({ children }) => {
   // storing images in a state
   const [images, setImages] = useState([]);
 
-  // storing the user-selected image
+  // BONUS: displaying a large selecte dimage
   const [selectedImage, setSelectedImage] = useState(null);
 
   // BONUS: setting state for "isLoading" or "!isLoading"
   const [isLoading, setIsLoading] = useState(false);
+
+  // BONUS: displaying selected breed above its associated pictures
+  const [selectedBreed, setSelectedBreed] = useState(null);
+
+
+
 
   // fetching breed images by ID indicated in the API
   const fetchImages = async (breedId) => {
     // once breed clicked, loading begins
     setIsLoading(true);
     console.log("Your kitty pictures are loading. One moment, please.");
+
+
 
     // try-catch for errors
     try {
@@ -37,10 +45,9 @@ export const CatImageProvider = ({ children }) => {
       console.error('Oops! There was an error fetching images:', error);
     }
   };
-
-  return (
+return (
     <CatImageContext.Provider
-      value={{ images, selectedImage, setSelectedImage, fetchImages, isLoading}}
+      value={{selectedBreed, setSelectedBreed, images, selectedImage, setSelectedImage, fetchImages, isLoading}}
     >
       {children}
     </CatImageContext.Provider>

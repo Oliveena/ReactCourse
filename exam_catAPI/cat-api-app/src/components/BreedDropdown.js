@@ -16,23 +16,25 @@ export default function BreedDropdown() {
   const { fetchImages } = useContext(CatImageContext);
 
   // what happens when the user selects a breed fro mdropdown
-  const handleSelect = (breedId) => {
+  // changed BreedId to full breed object 
+  const handleSelect = (breed) => {
     // a breed is selected
-    setSelectedBreed(breedId);
+    setSelectedBreed(breed);
     // its associated images are fetched
-    fetchImages(breedId);
+    fetchImages(breed.id);
   };
 
   return (
-    <div>
-      <DropdownButton id="dropdown-basic-button" title="Pick A Cat Breed">
-        {breeds.map((breed) => (
-          <Dropdown.Item key={breed.id} onClick={() => handleSelect(breed.id)}>
-            {/* Render cat breed name */}
-            {breed.name}
-          </Dropdown.Item>
-        ))}
-      </DropdownButton>
-    </div>
+    <DropdownButton
+  id="dropdown-basic-button"
+  title="Pick A Cat Breed"
+  className="cat-dropdown"
+>
+  {breeds.map((breed) => (
+    <Dropdown.Item key={breed.id} onClick={() => handleSelect(breed)}>
+        {breed.name}
+    </Dropdown.Item>
+))}
+    </DropdownButton>
   );
 }
