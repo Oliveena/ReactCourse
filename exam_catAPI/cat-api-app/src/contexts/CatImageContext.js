@@ -1,34 +1,36 @@
-import { createContext, useState, useEffect, Children } from 'react';
+import React from 'react';
+import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
+// creating context
 export const CatImageContext = createContext();
 
-export const CatImageProvider = ({children}) => {
-      // all of the images of the breed
+// creating the provider for context
+export const CatImageProvider = ({ children }) => {
+  // storing images in a state
   const [images, setImages] = useState([]);
-    // the image selected by user
-  const [selectedImage, setSelectedImage] = useState(null);
-}
 
-// async fetching images from API
-   const fetchImages = async () => {
-    const res = await axios.get("https://api.thecatapi.com/v1/images/search?breed_ids=BREED_ID&limit=6");
-    setImages(res.data);
+  // storing the user-selected image
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // fetching breed images by ID indicated in the API
+  const fetchImages = async (breedId) => {
+    // try-catch for errors
+    try {
+      const res = await axios.get(
+        `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}&limit=6`
+      );
+      setImages(res.data);
+    } catch (error) {
+      console.error('Oops! There was an error fetching images:', error);
+    }
   };
 
-  useEffect(() => {
-      fetchImages();
-    }, []);
-  
-    return (
-      <CatImageContext.CatImageProvider
-        value={{
-          images,
-          selectedImage,
-          setSelectedImage
-        }}
-      >
-        {children}
-      </CatImageContext.CatImageProvider>
-    );
-
+  return (
+    <CatImageContext.Provider
+      value={{ images, selectedImage, setSelectedImage, fetchImages }}
+    >
+      {children}
+    </CatImageContext.Provider>
+  );
+};

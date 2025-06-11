@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -15,12 +16,13 @@ export const BreedProvider = ({ children }) => {
     setBreeds(res.data);
   };
 
+  // getting breeds ONLY onclick
   useEffect(() => {
     fetchBreeds();
   }, []);
 
   return (
-    <BreedContext.BreedProvider
+    <BreedContext.Provider
       value={{
         breeds,
         selectedBreed,
@@ -28,7 +30,7 @@ export const BreedProvider = ({ children }) => {
       }}
     >
       {children}
-    </BreedContext.BreedProvider>
+    </BreedContext.Provider>
   );
 };
 

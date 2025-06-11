@@ -1,11 +1,21 @@
+import React from 'react';
+import { useContext } from 'react';
+import { CatImageContext } from '../contexts/CatImageContext'; 
+
 export default function CatImages() {
-
-
-    const CAT_IMAGES_URL = "https://api.thecatapi.com/v1/images/search?breed_ids=BREED_ID&limit=6"; 
-    
+    {/*importing cat images from context*/}
+    const { images } = useContext(CatImageContext);
     
     return(
-        <p>Cats</p>
-
+        <div>
+            <p>Cats</p>
+        {images.map((img) => (
+        <img
+          key={img.id}
+          src={img.url}
+          alt="Cat"
+        />
+      ))}
+        </div> 
     );
 }

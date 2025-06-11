@@ -1,18 +1,25 @@
-import CatImages from './components/CatImages';
+// I need to wrap named imports
+import React from 'react';
+import { BreedProvider } from './contexts/BreedContext';
+import { CatImageProvider } from './contexts/CatImageContext';
 import BreedDropdown from './components/BreedDropdown';
+import CatImages from './components/CatImages';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/*<img src={} className="App-logo" alt="logo" />*/}
-        <h1>Ana's Cat API</h1>
-        <p>Welcome! Want to see some cats?</p>
-        <BreedDropdown />
-        <CatImages />
-      </header>
-    </div>
+    <BreedProvider>
+      <CatImageProvider>
+        <div className="App">
+          <header className="App-header">
+            <h1>Ana's Cat API</h1>
+            <p>Welcome! Want to see some cats?</p>
+            <BreedDropdown />
+            <CatImages />
+          </header>
+        </div>
+      </CatImageProvider>
+    </BreedProvider>
   );
 }
 
