@@ -8,12 +8,11 @@ export default function CatImages() {
     
     return(
         <div>
-            <p>Cats</p>
         {images.map((img) => (
         <img
           key={img.id}
           src={img.url}
-          alt="Cat"
+          alt="Cat of a Breed Selected By User"
         />
       ))}
         </div> 
